@@ -45,7 +45,7 @@ export const deleteUser = (userid) => async (dispatch) => {
   try {
     const res = await axios.post(deleteTheUser, { userid });
     swal("User Deleted Successfully!", "success");
-    window.location.href="/";
+    window.location.href="/admin";
   } catch (error) {
     swal("Error while deleting user");
   }
