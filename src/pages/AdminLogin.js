@@ -9,6 +9,7 @@ import Error from "../Components/Error";
 import '../CSS/login.css';
 
 function AdminLogin() {
+  
   const [email, setEmail] = useState("admin@example.com");
   const [password, setPassword] = useState("admin123");
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function AdminLogin() {
   function handleLogin() {
     const user = { email, password };
     dispatch(adminUser(user));
+    
   }
   return (
     <>
