@@ -1,5 +1,6 @@
 export const host = "https://harrypizzaapp.herokuapp.com";
 
+
 export const getPizzaData = `${host}/api/pizzas/getAllPizzas`;
 export const registerRoute = `${host}/api/users/register`;
 export const loginRoute = `${host}/api/users/login`;

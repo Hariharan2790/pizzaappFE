@@ -6,6 +6,8 @@ import { getAllPizzas } from "../actions/pizzaAction";
 import Loader from "../Components/Loader";
 import Error from "../Components/Error";
 
+import '../CSS/Pizza.css';
+
 function HomePage() {
   const dispatch = useDispatch();
   const pizzastate = useSelector((state) => state.getAllPizzaReducer);
@@ -22,7 +24,7 @@ function HomePage() {
         ) : error ? (
           <Error>Error while fetching pizza datas{error}</Error>
         ) : (
-          <Row>
+          <Row classname="homepage">
             {pizzas.map((pizza) => (
               <Col md={4} key={pizza.name}>
                 <Pizza pizza={pizza} />
