@@ -53,6 +53,7 @@ function Register() {
                   placeholder="Enter your name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  required
                 />
               </Form.Group>
 
@@ -63,6 +64,7 @@ function Register() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </Form.Group>
 
@@ -73,6 +75,7 @@ function Register() {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
               </Form.Group>
 
@@ -83,6 +86,7 @@ function Register() {
                   placeholder="Confirm Password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
                 />
               </Form.Group>
 

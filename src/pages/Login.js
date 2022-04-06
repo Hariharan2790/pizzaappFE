@@ -51,6 +51,7 @@ function Login() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </Form.Group>
 
@@ -61,6 +62,7 @@ function Login() {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
               </Form.Group>
               <Button variant="primary" onClick={handleLogin}>
