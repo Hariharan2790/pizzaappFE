@@ -1,5 +1,12 @@
 import React from "react";
-import { Navbar, Container, Nav, Image, NavDropdown,Button } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Nav,
+  Image,
+  NavDropdown,
+  Button,
+} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import img from "../images/logo.png";
@@ -12,13 +19,19 @@ function TopBar() {
   const { currentUser } = userState;
   return (
     <>
-      <Navbar  variant="dark" expand="lg" sticky="top" style={{backgroundColor:"rgb(255,69,0)"}}>
+      <Navbar
+        variant="dark"
+        expand="lg"
+        sticky="top"
+        style={{ backgroundColor: "rgb(255,69,0)" }}
+      >
         <Container>
-          
           <Navbar.Brand>
             <Image src={img} alt="logo" style={{ height: "50px" }} />
           </Navbar.Brand>
-          <Navbar.Brand><h1>Pizza Shop</h1></Navbar.Brand>
+          <Navbar.Brand>
+            <h1>Pizza Shop</h1>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
@@ -28,33 +41,37 @@ function TopBar() {
               {currentUser ? (
                 <>
                   <LinkContainer to="/">
-                    {/* <Nav.Link >{currentUser.name}</Nav.Link> */}
                     <NavDropdown
                       title={currentUser.name}
                       id="basic-nav-dropdown"
                     >
-                        {/* <LinkContainer to="/orders">
                       <NavDropdown.Item>
-                        Orders
-                      </NavDropdown.Item>
-                      </LinkContainer> */}
-                      <NavDropdown.Item>
-                      <Button variant="outline-danger"
-                        onClick={() => {
-                          dispatch(logoutUser());
-                        }}>
-                            Logout
+                        <Button
+                          variant="outline-danger"
+                          onClick={() => {
+                            dispatch(logoutUser());
+                          }}
+                        >
+                          Logout
                         </Button>
                       </NavDropdown.Item>
                     </NavDropdown>
                   </LinkContainer>
-                  <LinkContainer to="/cart">
-                    <Nav.Link>Cart&nbsp;{cartState.cartItems.length}</Nav.Link>
+                  {currentUser.isAdmin === false ? (
+                    <LinkContainer to="/cart">
+                      <Nav.Link>
+                        Cart&nbsp;{cartState.cartItems.length}
+                      </Nav.Link>
+                    </LinkContainer>
+                  ) : (
+                    <LinkContainer to="/admin">
+                    <Nav.Link>Admin Panel</Nav.Link>
                   </LinkContainer>
-                 
+                  )}
                 </>
               ) : (
                 <>
+               
                   <LinkContainer to="/login">
                     <Nav.Link>Login</Nav.Link>
                   </LinkContainer>
@@ -64,9 +81,12 @@ function TopBar() {
                   <LinkContainer to="/adminlogin">
                     <Nav.Link>Admin</Nav.Link>
                   </LinkContainer>
-                 
                 </>
               )}
+            
+               
+
+             
             </Nav>
           </Navbar.Collapse>
         </Container>
