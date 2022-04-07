@@ -21,6 +21,7 @@ export const loginUser = (user) => async (dispatch) => {
     dispatch({ type: "USER_LOGIN_SUCCESS", payload: response.data });
     localStorage.setItem("currentUser", JSON.stringify(response.data));
     window.location.href = "/";
+    
   } catch (error) {
     dispatch({ type: "USER_LOGIN_FAIL", payload: error });
   }
@@ -28,7 +29,8 @@ export const loginUser = (user) => async (dispatch) => {
 
 export const logoutUser = () => dispatch => {
     localStorage.removeItem("currentUser");
-    window.location.href = "/login";
+    window.location.href = "/";
+    
 };
 
 export const getAllUsers = () => async (dispatch) => {
@@ -46,6 +48,7 @@ export const deleteUser = (userid) => async (dispatch) => {
     const res = await axios.post(deleteTheUser, { userid });
     swal("User Deleted Successfully!", "success");
     window.location.href="/admin";
+    // window.location.reload();
   } catch (error) {
     swal("Error while deleting user");
   }

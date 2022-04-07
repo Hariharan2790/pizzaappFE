@@ -20,13 +20,20 @@ function Register() {
   const dispatch = useDispatch();
 
   function handleSignup() {
-    
-    if (password !== confirmPassword) {
-      alert("Password do not match");
-    } else {
+              
+    if ( name === "" && email === "" && password === "" && confirmPassword === "") {
+      alert("please fill the input field");
+    }else if(password !== confirmPassword) {
+      alert("password do not match")
+    }else if(name === "") {
+      alert("please fill the name")
+    }else if(email === "") {
+      alert("please fill the email")
+    }
+     else {
       const user = { name, email, password, confirmPassword };
       dispatch(registerUser(user));
-      alert("User registered successfully")
+      
     }
   }
   return (

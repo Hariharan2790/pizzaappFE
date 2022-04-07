@@ -19,6 +19,8 @@ import AdminLogin from './pages/AdminLogin';
 
 
 function App() {
+  const currentUser = localStorage.getItem('currentUser')
+  console.log(currentUser)
   return (
     
    <BrowserRouter>
@@ -27,7 +29,7 @@ function App() {
     <Route path="/register" component={Register } />
     <Route path="/login" component={Login} /> 
     <Route path="/" component={HomePage } exact />
-    <Route path="/cart" component={CartScreen} />
+    <Route path="/cart" component={currentUser ? CartScreen : HomePage} />
     <Route path="/orders" component={Order} />
     <Route path="/admin" component={AdminPage} />
     <Route path="/adminlogin" component={AdminLogin} />
