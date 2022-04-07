@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { addToCart } from "../actions/cartAction";
 import {FaRupeeSign} from 'react-icons/fa';
 import '../CSS/Pizza.css';
@@ -10,6 +10,8 @@ function Pizza({ pizza }) {
   const [varient, setVarient] = useState("small");
   const [quantity, setQuantity] = useState(1);
   const [show, setShow] = useState(false);
+  const userState = useSelector((state) => state.loginUserReducer);
+  const { currentUser } = userState;
 
   const dispatch = useDispatch()
 
@@ -67,9 +69,9 @@ function Pizza({ pizza }) {
           <Row>
             <Col md={6}>Price : <FaRupeeSign/> {pizza.prices[0][varient] * quantity}</Col>
             <Col md={6}>
-              <Button 
+            {currentUser &&  <Button 
               onClick={addToCartHandler}
-              variant="primary">Add to Cart</Button>
+              variant="primary">Add to Cart</Button>}
             </Col>
           </Row>
         </Card.Body>

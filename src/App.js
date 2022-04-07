@@ -4,6 +4,7 @@ import {
   BrowserRouter,
   Switch,
   Route,
+
 } from "react-router-dom";
 import TopBar from './Components/TopBar';
 import HomePage from './pages/HomePage';
@@ -16,6 +17,7 @@ import AdminLogin from './pages/AdminLogin';
 
 
 
+
 function App() {
   return (
     
@@ -23,7 +25,7 @@ function App() {
     <TopBar/>
     <Switch>
     <Route path="/register" component={Register } />
-    <Route path="/login" component={Login }  />
+    <Route path="/login" component={Login} /> 
     <Route path="/" component={HomePage } exact />
     <Route path="/cart" component={CartScreen} />
     <Route path="/orders" component={Order} />
@@ -38,3 +40,5 @@ function App() {
 }
 
 export default App;
+
+
