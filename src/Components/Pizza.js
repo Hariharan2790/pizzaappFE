@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../actions/cartAction";
 import { FaRupeeSign } from "react-icons/fa";
 import "../CSS/Pizza.css";
+import swal from "sweetalert";
 
 function Pizza({ pizza }) {
   const [varient, setVarient] = useState("small");
@@ -22,6 +23,7 @@ function Pizza({ pizza }) {
       swal("Fail", "Please login to shop pizza!", "error");
     }
   };
+  
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
