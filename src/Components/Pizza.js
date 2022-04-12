@@ -19,6 +19,7 @@ function Pizza({ pizza }) {
   const addToCartHandler = () => {
     if (currentUser) {
       dispatch(addToCart(pizza, quantity, varient));
+      swal("Thank You", "This item has been added to cart", "success")
     } else {
       swal("Fail", "Please login to shop pizza!", "error");
     }
